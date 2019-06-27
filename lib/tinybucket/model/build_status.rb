@@ -27,6 +27,7 @@ module Tinybucket
 
       acceptable_attributes \
         :state, :type, :key, :name, :url, :description, :links, \
+        :repository, :refname, :commit, \
         :created_on, :updated_on
 
       attr_accessor :revision

@@ -35,7 +35,7 @@ module Tinybucket
 
       acceptable_attributes \
         :hash, :links, :repository, :author, :parents, :date,
-        :message, :participants, :uuid, :type
+        :message, :participants, :uuid, :type, :rendered, :summary
 
       # Get comments which associate with this commit.
       #
@@ -43,6 +43,14 @@ module Tinybucket
       # @return [Tinybucket::Resource::Commit::Comments]
       def comments(options = {})
         comments_resource(options)
+      end
+
+      def approved_by
+        participants.select do |p|
+          p['approved']
+        end.map do |p|
+          p['user']['display_name']
+        end
       end
 
       # Get the specific commit comment which associate with this commit.

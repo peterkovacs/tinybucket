@@ -52,7 +52,7 @@ module Tinybucket
         :scm, :has_wiki, :description, :links, :updated_on,
         :fork_policy, :created_on, :owner, :size, :parent, :uuid,
         :has_issues, :is_private, :full_name, :name, :language,
-        :website, :type, :project
+        :website, :type, :project, :slug, :mainbranch
 
       def initialize(json)
         super(json)
